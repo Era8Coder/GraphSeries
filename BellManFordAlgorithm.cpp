@@ -6,6 +6,7 @@ using namespace std;
                                                     Dijkstra's Algorithm                                    BellmanFord Algorithm
                                                         O(E+E*log(V))                   |                       O(V*E)
                                                 For positive weight cycles              |               For negative weight cycles 
+                                                            -->> Bellman Ford don't work for negative weight cycles <<--
                         */
 
 void bellman_ford(map<int,vector<pair<int,int>>> &graph, int src, int V){
