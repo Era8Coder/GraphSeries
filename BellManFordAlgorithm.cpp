@@ -27,6 +27,19 @@ void bellman_ford(map<int,vector<pair<int,int>>> &graph, int src, int V){
         }
     }
 
+  // -->> Another Loop to check negative weight cycles  -> Otherwise Bellman Ford Algorithm ensures that you get answer in "V-1" loops <<--
+  for(int i=0; i<V; i++){
+            for(auto it : graph[i]){                       // NEIGHBORS OF i'th ELEMENT
+                int u = i;
+                int v = it.first;
+                int wt= it.second;
+                if(distance[i] != INT_MAX && distance[i] + wt < distance[v]){
+                    // distance[v] = distance[i] + wt;
+                    cout << "Negative Weight Cycle Is Present" << endl;
+                }
+            }
+        }
+
     for(int i=0; i<distance.size(); i++){   
         cout << distance[i] << " ";
     }
