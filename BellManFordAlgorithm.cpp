@@ -13,7 +13,7 @@ void bellman_ford(map<int,vector<pair<int,int>>> &graph, int src, int V){
     vector<int> distance(V,INT_MAX);
     distance[src] = 0;
 
-    for(int k=0; k<V-1; k++){           // O(V)
+    for(int k=0; k<V-1; k++){           // O(V)  -> Why V-1 since longest path in the graph will have "V-1" nodes therefore we are exploring all the paths :)
         // O(E)
         for(int i=0; i<V; i++){
             for(auto it : graph[i]){                       // NEIGHBORS OF i'th ELEMENT
