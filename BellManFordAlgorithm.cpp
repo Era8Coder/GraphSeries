@@ -5,7 +5,7 @@ using namespace std;
                                     Here's the Code for Bellman Ford
                                                     Dijkstra's Algorithm                                    BellmanFord Algorithm
                                                         O(E+E*log(V))                   |                       O(V*E)
-                                                For positive weight cycles              |               For negative weight cycles 
+                                                For positive weight graphs              |               For negative weight graphs 
                                                             -->> Bellman Ford don't work for negative weight cycles <<--
                         */
 
