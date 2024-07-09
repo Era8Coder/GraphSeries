@@ -18,6 +18,15 @@ and is not the parent of v, and vistime(visited time) of vertex u is less than v
 f) If any fully visited vertex is found, we will skip that node.
 */
 
+void dfs1(map<int,vector<int>> &graph, vector<bool> &visited, int curr){
+    visited[curr] = true;
+    for(auto neighbor : graph[curr]){
+        if(!visited[neighbor]){
+            dfs1(graph, visited, neighbor);
+        }
+    }
+}
+
 void dfs(map<int,vector<int>> &graph, int parent, int curr, int &cycle_count, vector<int> &visitime, vector<bool> &visited, int &timer){
     visited[curr] = true;
     visitime[curr] = timer;
