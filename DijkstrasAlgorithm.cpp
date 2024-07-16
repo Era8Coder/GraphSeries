@@ -14,7 +14,7 @@ void shortest_path(map<int,vector<pair<int,int>>> &graph, int src, int V){
         for(auto it : graph[u]){                // We are now inside the vector
             int v = it.first;
             int wt= it.second;
-            if(distance[v] = distance[u] + wt){                 // Method of Relaxation
+            if(distance[v] > distance[u] + wt){                 // Method of Relaxation
                 distance[v] = distance[u] + wt;
                 pq.push(make_pair(distance[v], v));
             }
