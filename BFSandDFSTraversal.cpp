@@ -29,6 +29,35 @@ void BFS(map<int,vector<int>> &graph, int start, int V, vector<bool> &visited){ 
     }
 }
 
+// What if one wants to makw Layer-Wise ?
+// BFS Traversal ->-<- 
+void BFS(map<int, vector<int>> &graph, int start, vector<bool> &visited){        
+    queue<int> q;
+    q.push(start);  
+    visited[start] = true; // Mark as visited when pushed!
+    q.push(-1);
+
+    while(!q.empty()){
+        int f = q.front();
+        q.pop();
+
+        if(f == -1){                    // end of a level 
+            cout << endl;
+            if(!q.empty())
+                q.push(-1);
+            continue;
+        }
+
+        cout << f << "-";
+        for(int neighbors: graph[f]){
+            if(!visited[neighbors]){
+                q.push(neighbors);
+                visited[neighbors] = true;
+            }
+        }
+    }
+}
+
 // DFS      -> BASICALLY TRAVERSING TO DEPTH AS MUCH AS POSSIBLE 
 void DFS(map<int,vector<int>> &graph, int curr, vector<bool> &visited){
     cout << curr << " ";
